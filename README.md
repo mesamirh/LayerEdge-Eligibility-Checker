@@ -6,10 +6,11 @@ This Node.js script checks your airdrop eligibility and on-chain claim status fo
 
 ## 🚀 Features
 
-- **Eligibility Check**: Fetches your airdrop allocation amount from the LayerEdge API.
-- **On-Chain Status**: Checks a specific LayerEdge smart contract to determine if the airdrop has potentially been claimed for your address.
-- **Secure**: Reads your private key from a `.env` file to ensure it's not hardcoded.
-- **User-Friendly Output**: Provides clear, emoji-enhanced console messages about the process and results.
+- 🔄 Multi-wallet support (check multiple addresses at once)
+- 💰 Shows current and initial EDGE allocation amounts
+- ⛓️ Verifies on-chain claim status
+- 🔒 Secure private key handling via `.env` file
+- 🎨 Colored and formatted console output
 
 ---
 
@@ -18,7 +19,6 @@ This Node.js script checks your airdrop eligibility and on-chain claim status fo
 - **Node.js**: Version 16.x or higher recommended. You can download it from [nodejs.org](https://nodejs.org/).
 - **npm** (Node Package Manager): Usually comes with Node.js.
 - An **Ethereum Private Key**: For the wallet you want to check.
-- An **RPC URL**: The script is pre-configured to use `https://rpc.layeredge.io/`, but you can change it if needed.
 
 ---
 
@@ -45,8 +45,16 @@ This Node.js script checks your airdrop eligibility and on-chain claim status fo
 4.  **Create `.env` File:**
     In the same project directory, create a file named `.env`. This file will securely store your private key. Add your private key to this file in the following format:
 
+    For single wallet:
+
     ```env
-    PRIVATE_KEY="your_ethereum_private_key"
+    PRIVATE_KEY="your_wallet_private_key_here"
+    ```
+
+    For multiple wallets:
+
+    ```env
+    PRIVATE_KEYS=["private_key1", "private_key2", "private_key3"]
     ```
 
     **🔒 IMPORTANT SECURITY NOTE:**
